@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Grounded Decoding</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://groundeddecoding.github.io/"/>
+    <meta property="og:title" content="Grounded Decoding" />
+    <meta property="og:description" content="Project page for Language Models with Grounded Decoding for Robot Control" />
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Grounded Decoding" />
+    <meta name="twitter:description" content="Project page for Language Models with Grounded Decoding for Robot Control" />
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script 
+src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script 
+src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script 
+src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-10 col-md-offset-1 text-center">
+                <b><font size="+4">Language Models with Grounded Decoding for Robot Control</font></b></br> 
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+               <ul class="list-inline">
+                <br>
+                <!-- Wenlong Huang, Fei Xia, Dhruv Shah, Danny Driess, Andy Zeng, Yao Lu, Pete Florence, Igor Mordatch, Sergey Levine, Karol Hausman, Brian Ichter -->
+                <p>
+                <li>Wenlong Huang</li> <li>Fei Xia</li> <li>Dhruv Shah</li> <li>Danny Driess</li> <li>Andy Zeng</li> <li>Yao Lu</li> <li>Pete Florence</li> <li>Igor Mordatch</li> <li>Sergey Levine</li> <li>Karol Hausman</li> <li>Brian Ichter</li>
+                </p>
+              
+                <br><br>
+                    <a href="http://g.co/robotics">
+                    <img src="media/robotics-at-google.png" height="40px"> Robotics at Google</a> <br>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                      <a href="https://arxiv.org/abs/XXXXX">
+                      <image src="media/paper-icon.jpg" height="60px">
+                          <h5><strong>Paper</strong></h5>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://youtu.be/XXX">
+                      <image src="media/youtube_icon.png" height="60px">
+                          <h5><strong>Video</strong></h5>
+                      </a>
+                    </li>
+                    <!-- li>
+                      <a href="https://ai.googleblog.com/2021/04/multi-task-robotic-reinforcement.html">
+                      <image src="media/google-ai-blog-small.png" height="60px">
+                          <h5><strong>Blogpost</strong></h5>
+                      </a>
+                    </li -->
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center">
+               <video width="100%" height="100%" controls autoplay loop muted>
+                <source src="media/beam.mp4" type="video/mp4">
+              </video>
+            </div>
+        </div>
+        
+
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+               
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+Recent progress in large language models (LLMs) has demonstrated the ability to learn and leverage Internet-scale knowledge through pre-training with autoregressive models. Unfortunately, applying such models to settings with embodied agents, such as robots, is challenging due to their lack of experience with the physical world, inability to parse non-language observations, and ignorance of rewards or safety constraints that robots may require. On the other hand, language-conditioned robotic policies that learn from interaction data can provide the necessary grounding that allows the agent to be correctly situated in the real world, but such policies are limited by the lack of high-level semantic understanding due to the limited breadth of the interaction data available for training them. Thus, if we want to make use of the semantic knowledge in a language model while still situating it in an embodied setting, we must construct an action sequence that is both likely according to the language model and also realizable according to grounded models of the environment. We frame this as a problem similar to probabilistic filtering: decode a sequence that both has high probability under the language model and high probability under a set of grounded model objectives. We demonstrate this guided decoding strategy is able to solve complex, long-horizon embodiment tasks in a robotic setting by leveraging the knowledge of both models.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+               
+                <h3>
+                    Video Walkthrough
+                </h3>
+                <div class="text-center">
+                  <!-- <video id="v0" width="100%" playsinline loop controls>
+                      <source src="img/im_supp_video_compressed.mp4" type="video/mp4">
+                  </video> -->
+                  <div class="col-md-10 col-md-offset-1">
+                  <div style="position:relative;padding-top:56.25%">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/XXX" allowfullscreen style="position:absolute;top:0;left:0;bottom:0;width:100%;height:100%;"></iframe>
+                  </div>
+                  </div>
+                </div>
+            
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+            	<br>
+                <h3>
+                    Method Overview
+                </h3>
+                <p style="text-align:center;"> 
+              <img src="media/teaser.jpg" alt="teaser" width="100%" height="100%">
+            </p>
+                <p class="text-justify">
+   Given a free-form language instruction, a <font color="#5A8FEE"><b>language model</b></font> and <font color="#E84A3D"><b>grounded models</b></font> jointly decide the next candidate token to be decoded by <font color="#A354F0"><b>combining</b></font> their respective likelihood. Language model proposes likely tokens that produce goal-directed and coherent long-horizon behaviors, while grounded models connect them to the physical scene, through a flexible composition of multiple objective functions, such as affordance, preferences, and safety, that can be independently obtained. The figure shows an example of applying Grounded Decoding with beam search for decoding the language model to generate an action plan.
+                <p class="text-justify">
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+              <h3>
+                    Simulated Tabletop Rearrangement
+                </h3>
+              <p class="text-justify">
+                In the simulated tabletop rearrangement domain, we show that Grounded Decoding can enable language models to condition on the physical scene to generate grounded action plans. All plans are generated with affordance grounding. For task "pack me a picnic box", the plan is generated additionally with safety grounding (avoid touching the knife) and preference grounding (choosing cupcake and orange which are pre-specified as preferred objects).
+              </p>
+          </div>
+        </div>
+        <div class="row">  
+              <div class="col-md-4">
+              <p style="text-align:center;">
+                <video width="90%" height="90%" controls autoplay loop muted>
+                  <source src="media/stack_only_cool_colors.mp4" type="video/mp4">
+                </video>
+                <p class="text-justify">
+                  Task: Stack only the blocks of cool colors.<br>
+                  Step 1: Pick up blue block and place it on green block.<br>
+                  Step 2: Pick up cyan block and place it on blue block.<br>
+                  Step 3: Done.
+                </p>
+              </p>
+              </div>
+              <div class="col-md-4">
+                <p style="text-align:center;">
+                <video width="90%" height="90%" controls autoplay loop muted>
+                  <source src="media/pack_picnic.mp4" type="video/mp4">
+                </video>
+                <p class="text-justify">
+                  Task: Pack me a picnic box.<br>
+                  Step 1: Pick up cupcake and place it on picnic box.<br>
+                  Step 2: Pick up orange and place it on picnic box.<br>
+                  Step 3: Done.
+                </p>
+                </p>
+              </div>   
+              <div class="col-md-4">
+                <p style="text-align:center;">
+                <video width="90%" height="90%" controls autoplay loop muted>
+                  <source src="media/separate_vowels.mp4" type="video/mp4">
+                </video>
+                <p class="text-justify">
+                  Task: Separate the vowels from the remaining letters.<br>
+                  Step 1: Pick up A and place it on bottom side.<br>
+                  Step 2: Pick up I and place it on bottom side.<br>
+                  Step 3: Pick up O and place it on bottom side.<br>
+                  Step 4: Done.
+                </p>
+                </p>
+              </div> 
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+              <h3>
+                    Real-World Kitchen Mobile Manipulation
+                </h3>
+              <p class="text-justify">
+                In the real-world kitchen mobile manipulation domain, we show that Grounded Decoding with open-vocabulary object detection can help resolve ambiguous queries. The tokens inside the brackets are decoded with Grounded Decoding, where brackets are generated by the language model (i.e., the language model decides when/where to ground itself when the query is ambiguous). Unlike the simulated tabletop domain, since it is difficult to obtain an open-vocabulary language-conditioned policy, we follow SayCan's implementation for decoding "Robot plan". For details, please refer to the paper.
+              </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <p style="text-align:center;">
+                <video width="100%" height="100%" controls autoplay loop muted>
+                  <source src="media/kitchen.mp4" type="video/mp4">
+                </video>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p class="text-justify">
+              Robot: I am a robot that can bring objects to you. <br>
+              Human: I want a soda that is not coke, and a fruit.<br>
+              Robot thought: I will find the <b>[pepsi]</b> and the <b>[apple]</b><br>
+              Robot plan: 1. Find a pepsi <br>
+              2. Pick up the pepsi<br>
+              3. Bring it to you<br>
+              4. Find an apple<br>
+              5. Pick up the apple<br>
+              6. Bring it to you<br>
+              7. Done 
+            </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+              <h3>
+                    MiniGrid 2D Maze
+                </h3>
+              <p class="text-justify">
+                In the MiniGrid 2D Maze domain, we similarly leverage affordance grounding to show how Grounded Decoding can generate long-horizon action plans.
+              </p>
+          </div>
+        </div>
+        <div class="row">  
+              <div class="col-md-4">
+              <p style="text-align:center;">
+                <video width="90%" height="90%" controls autoplay loop muted>
+                  <source src="media/gd-MultiRoom-N6-v0.mp4" type="video/mp4">
+                </video>
+                <p class="text-justify">
+                  Task: Traverse the rooms to get to the goal.<br>
+                  Step 1: go to blue door<br>
+                  Step 2: open blue door<br>
+                  Step 3: go to purple door<br>
+                  Step 4: open purple door<br>
+                  Step 5: go to red door<br>
+                  Step 6: open red door<br>
+                  Step 7: go to blue door<br>
+                  Step 8: open blue door<br>
+                  Step 9: go to gray door<br>
+                  Step 10: open gray door<br>
+                  Step 11: go to goal<br>
+                  <br>
+                  Task: Traverse the rooms to get to the goal.<br>
+                  Step 1: go to red door<br>
+                  Step 2: open red door<br>
+                  Step 3: go to purple door<br>
+                  Step 4: open purple door<br>
+                  Step 5: go to yellow door<br>
+                  Step 6: open yellow door<br>
+                  Step 7: go to green door<br>
+                  Step 8: open green door<br>
+                  Step 9: go to yellow door<br>
+                  Step 10: open yellow door<br>
+                  Step 11: go to goal<br>
+                </p>
+              </p>
+              </div>
+              <div class="col-md-4">
+                <p style="text-align:center;">
+                <video width="90%" height="90%" controls autoplay loop muted>
+                  <source src="media/gd-LockedUnlockPickup-v0.mp4" type="video/mp4">
+                </video>
+                <p class="text-justify">
+                  Task: Pick up the grey box.<br>
+                  Step 1: go to green circle<br>
+                  Step 2: pickup green circle<br>
+                  Step 3: drop green circle<br>
+                  Step 4: go to yellow key<br>
+                  Step 5: pickup yellow key<br>
+                  Step 6: go to yellow door<br>
+                  Step 7: open yellow door<br>
+                  Step 8: drop yellow key<br>
+                  Step 9: go to grey box<br>
+                  Step 10: pickup grey box<br>
+                  <br>
+                  Task: Pick up the blue box.<br>
+                  Step 1: go to blue circle<br>
+                  Step 2: pickup blue circle<br>
+                  Step 3: drop blue circle<br>
+                  Step 4: go to red key<br>
+                  Step 5: pickup red key<br>
+                  Step 6: go to red door<br>
+                  Step 7: open red door<br>
+                  Step 8: drop red key<br>
+                  Step 9: go to blue box<br>
+                  Step 10: pickup blue box<br>
+                </p>
+                </p>
+              </div>   
+              <div class="col-md-4">
+                <p style="text-align:center;">
+                <video width="90%" height="90%" controls autoplay loop muted>
+                  <source src="media/gd-MultiRoom-N4-S5-v0.mp4" type="video/mp4">
+                </video>
+                <p class="text-justify">
+                  Task: Traverse the rooms to get to the goal.<br>
+                  Step 1: go to purple door<br>
+                  Step 2: open purple door<br>
+                  Step 3: go to yellow door<br>
+                  Step 4: open yellow door<br>
+                  Step 5: go to red door<br>
+                  Step 6: open red door<br>
+                  Step 7: go to green door<br>
+                  Step 8: open green door<br>
+                  Step 9: go to purple door<br>
+                  Step 10: open purple door<br>
+                  Step 11: go to goal<br>
+                  <br>
+                  Task: Traverse the rooms to get to the goal.<br>
+                  Step 1: go to green door<br>
+                  Step 2: open green door<br>
+                  Step 3: go to purple door<br>
+                  Step 4: open purple door<br>
+                  Step 5: go to yellow door<br>
+                  Step 6: open yellow door<br>
+                  Step 7: go to gray door<br>
+                  Step 8: open gray door<br>
+                  Step 9: go to yellow door<br>
+                  Step 10: open yellow door<br>
+                  Step 11: go to goal<br>
+                  <br>
+                  Task: Traverse the rooms to get to the goal.<br>
+                  Step 1: go to purple door<br>
+                  Step 2: open purple door<br>
+                  Step 3: go to blue door<br>
+                  Step 4: open blue door<br>
+                  Step 5: go to purple door<br>
+                  Step 6: open purple door<br>
+                  Step 7: go to blue door<br>
+                  Step 8: open blue door<br>
+                  Step 9: go to gray door<br>
+                  Step 10: open gray door<br>
+                  Step 11: go to goal<br>
+                </p>
+                </p>
+              </div> 
+        </div>
+     
+     
+</html>
+</body>
