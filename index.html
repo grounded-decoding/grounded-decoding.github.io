@@ -82,8 +82,7 @@
             <div class="col-md-12 text-center">
                <ul class="list-inline">
                 <br>
-                <li>Wenlong Huang</li> <li>Fei Xia</li> <li>Dhruv Shah</li> <li>Danny Driess</li> <li>Andy Zeng</li> <li>Yao Lu</li> <li>Pete Florence</li> <li>Igor Mordatch</li> <li>Sergey Levine</li> <li>Karol Hausman</li> <li>Brian Ichter</li>
-              
+                <li>Wenlong Huang</li><li>Fei Xia</li><li>Dhruv Shah</li><li>Danny Driess</li><li>Andy Zeng</li><li>Yao Lu</li><li>Pete Florence</li><li>Igor Mordatch</li><li>Sergey Levine</li><li>Karol Hausman</li><li>Brian Ichter</li>
                 <br><br>
                     <a href="http://g.co/robotics">
                     <img src="media/robotics-at-google.png" height="40px"> Robotics at Google</a> <br>
@@ -102,7 +101,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="https://youtu.be/OwsUP-knG9s">
+                      <a href="https://youtu.be/csIaDAN67xI">
                       <image src="media/youtube_icon.png" height="60px">
                           <h5><strong>Video</strong></h5>
                       </a>
@@ -151,7 +150,7 @@ Recent progress in large language models (LLMs) has demonstrated the ability to 
                   </video> -->
                   <div class="col-md-10 col-md-offset-1">
                   <div style="position:relative;padding-top:56.25%">
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/OwsUP-knG9s" allowfullscreen style="position:absolute;top:0;left:0;bottom:0;width:100%;height:100%;"></iframe>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/csIaDAN67xI" allowfullscreen style="position:absolute;top:0;left:0;bottom:0;width:100%;height:100%;"></iframe>
                   </div>
                   </div>
                 </div>
@@ -169,8 +168,11 @@ Recent progress in large language models (LLMs) has demonstrated the ability to 
               <img src="media/teaser.jpg" alt="teaser" width="100%" height="100%">
             </p>
                 <p class="text-justify">
-   Given a free-form language instruction, a <font color="#5A8FEE"><b>language model</b></font> and <font color="#E84A3D"><b>grounded models</b></font> jointly decide the next candidate token to be decoded by <font color="#A354F0"><b>combining</b></font> their respective likelihood. Language model proposes likely tokens that produce goal-directed and coherent long-horizon behaviors, while grounded models connect them to the physical scene, through a flexible composition of multiple objective functions, such as affordance, preferences, and safety, that can be independently obtained. The figure shows an example of applying Grounded Decoding with beam search for decoding the language model to generate an action plan.
+                Given a free-form language instruction, a <font color="#5A8FEE"><b>language model</b></font> and <font color="#E84A3D"><b>grounded models</b></font> jointly decide the next candidate token to be decoded by <font color="#A354F0"><b>combining</b></font> their respective likelihood. Language model proposes likely tokens that produce goal-directed and coherent long-horizon behaviors, while grounded models connect them to the physical scene, through a flexible composition of multiple objective functions, such as affordance, preferences, and safety, that can be independently obtained. The figure shows an example of applying Grounded Decoding with beam search for decoding the language model to generate an action plan.
+                </p>
                 <p class="text-justify">
+                <font size="+0.7"><b>Comparison to <a href="https://say-can.github.io">SayCan</a>.&nbsp</b></font> This work is closely related to SayCan, which uses an LLM and affordance functions to select among a pre-defined set of primitives. This pre-defined set of primitives enables SayCan to use the so-called “scoring-mode” of the LLM to calculate the probability of the textual representation of the primitive in relevance to the high-level task. This requirement of exhaustive enumeration of all possible primitives limits the applicability of SayCan in scenarios with many possible skills, such as open-vocabulary or combinatorial tasks, which GD handles naturally through its flexible and expressive token-level grounding.
+                </p>
             </div>
         </div>
 
@@ -235,7 +237,7 @@ Recent progress in large language models (LLMs) has demonstrated the ability to 
                     Real-World Kitchen Mobile Manipulation
                 </h3>
               <p class="text-justify">
-                In the real-world kitchen mobile manipulation domain, we show that Grounded Decoding with open-vocabulary object detection can help resolve ambiguous queries with grounded chain-of-thought. The <font color="#228B22"><b>green characters</b></font> are decoded with Grounded Decoding, where the open brackets are generated by the language model alone (i.e., the language model decides when/where to ground itself when the query is ambiguous). Unlike the simulated tabletop domain, we follow SayCan's implementation for decoding action plans. For details, please refer to the paper.
+                In the real-world kitchen mobile manipulation domain, we show that Grounded Decoding with open-vocabulary object detection can help resolve ambiguous queries with grounded chain-of-thought. The <u><b>underlined characters (including close brackets)</b></u> are decoded with Grounded Decoding, where the open brackets are generated by the language model alone (i.e., the language model decides when/where to ground itself when the query is ambiguous). Unlike the simulated tabletop domain, we follow SayCan's implementation for decoding action plans. For details, please refer to the paper.
               </p>
           </div>
         </div>
@@ -251,7 +253,7 @@ Recent progress in large language models (LLMs) has demonstrated the ability to 
             <p class="text-justify">
               Robot: I am a robot that can bring objects to you. <br>
               Human: I want a soda that is not coke, and a fruit.<br>
-              Robot thought: I will find the [<font color="#228B22"><b>pepsi]</b></font> and the [<font color="#228B22"><b>apple]</b></font><br>
+              Robot thought: I will find the [<u><b>pepsi]</b></u> and the [<u><b>apple]</b></u><br>
               Robot plan: 1. Find a pepsi <br>
               2. Pick up the pepsi<br>
               3. Bring it to you<br>

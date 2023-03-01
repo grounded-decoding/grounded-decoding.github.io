@@ -163,5 +163,10 @@ span.highlight {
 
 
 .carousel-inner {
-  background-color: rgb(240, 225, 255);
+  background-color: rgba(240, 225, 255, 0.497);
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(20%);
 }
